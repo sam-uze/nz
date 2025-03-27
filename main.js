@@ -111,7 +111,7 @@ const STOPS = [
     {
         nr: 13,
         title: "Pancake rocks (Punakaiki)",
-        user: "johaschra"
+        user: "johaschra",
         lat: -42.114383,
         lng: 171.327320,
         zoom: 11,
@@ -121,8 +121,8 @@ const STOPS = [
         title: "Wanaka",
         user: "lizzie2911",
         lat: -44.7,
-        lng: 169.15,
-        zoom: zoom,,
+        lng:169.15,
+        zoom: 13,
     },
     {
       nr: 17,
@@ -199,8 +199,6 @@ const STOPS = [
     
     ]
     
-        
-
 //Karte initialisieren
 let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 
