@@ -18,5 +18,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //Marker zeichnen
 let marker = L.marker([-39.48, 176.90]).addTo(map);
 
+
 //Popup definieren und öffnen
-marker.bindPopup("<b>Napier</b><br>Center").openPopup();
+marker.bindPopup(`
+    <b>Napier</b>
+    <br>
+    Center
+`).openPopup();
