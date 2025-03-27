@@ -2,8 +2,12 @@
 Skript für die Neuseelandreise
 */
 
+let lat = -39.48;
+let lng = 176.90;
+let zoom = 13;
+
 //Karte initialisieren
-let map = L.map('map').setView([-39.48, 176.90], 13);
+let map = L.map('map').setView([lat, lng], zoom);
 
 //Hintergrund definieren
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
