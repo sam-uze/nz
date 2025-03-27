@@ -229,6 +229,15 @@ for ( let i=0; i<STOPS.length; i++){
         marker.openPopup();
     }
 
+    // Pulldownmenü befüllen
+    let option = document.createElement("option");
+    option.value = STOPS[i].user;
+    option.text = STOPS[i].title;
+    if (STOPS[i].user== "sam-uze") {
+        option.selected = true;
+    }
+    document.querySelector("#pulldown select").appendChild(option);
+
 }
 
 
