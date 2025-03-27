@@ -23,5 +23,5 @@ let marker = L.marker([-39.48, 176.90]).addTo(map);
 marker.bindPopup(`
     <b>Napier</b>
     <br>
-    Center
+    Center at ${lat.toFixed(5)} / ${lng.toFixed(5)}
 `).openPopup();
