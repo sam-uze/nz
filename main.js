@@ -166,7 +166,7 @@ const STOPS = [
     },
     {
         nr: 24,
-        titel: "Moeraki Boulders",
+        title: "Moeraki Boulders",
         user: "StephanPumpernik",
         lat: -45.345275,
         lng: 170.826061,
@@ -198,7 +198,11 @@ const STOPS = [
     },
     
     ]
-    
+console.log(STOPS[0]);
+console.log(STOPS[0].title);
+
+
+
 //Karte initialisieren
 let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 
@@ -208,8 +212,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-//Marker zeichnen
-let marker = L.marker([stop.lat, stop.lng]).addTo(map);
+// Loop über alle Etappen
+for ( let i=0; i<STOPS.length; i++){
+    console.log(i,STOPS[i],STOPS[i].title);
+    let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+}
+
+
 
 
 //Popup definieren und öffnen
