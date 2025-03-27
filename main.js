@@ -202,7 +202,7 @@ console.log(STOPS[0]);
 console.log(STOPS[0].title);
 
 //Karte initialisieren
-let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
+let map = L.map('map');
 
 //Hintergrund definieren
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -221,7 +221,13 @@ for ( let i=0; i<STOPS.length; i++){
             <li>geogr. Breite: ${STOPS[i].lat.toFixed(5)}°</li> 
             <li>geogr. Länge: ${STOPS[i].lng.toFixed(5)}°</li>
         </ul>
-`).openPopup();
+    `);
+
+    // auf eigene Etappe blicken und Popup öffnen
+    if (STOPS[i].user== "sam-uze") {
+        map.setView([STOPS[i].lat, STOPS[i].lng], STOPS[i].zoom);
+        marker.openPopup();
+    }
 
 }
 
