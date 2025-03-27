@@ -2,10 +2,6 @@
 Skript für die Neuseelandreise
 */
 
-let lat = -39.48;
-let lng = 176.90;
-let zoom = 13;
-
 let stop = {
     nr: 7,
     title: "Napier",
@@ -16,7 +12,7 @@ let stop = {
 };
 
 //Karte initialisieren
-let map = L.map('map').setView([lat, lng], zoom);
+let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 
 //Hintergrund definieren
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -25,21 +21,15 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 //Marker zeichnen
-let marker = L.marker([-39.48, 176.90]).addTo(map);
+let marker = L.marker([stop.lat, stop.lng]).addTo(map);
 
 
 //Popup definieren und öffnen
 marker.bindPopup(`
-    <h2>Napier</h2>
+    <h2>${stop.title}</h2>
     <ul>
-        <li>geogr. Breite:5 ${lat.toFixed(5)}°</li> 
-        <li>geogr. Länge: ${lng.toFixed(5)}°</li>
+        <li>geogr. Breite: ${stop.lat.toFixed(5)}°</li> 
+        <li>geogr. Länge: ${stop.lng.toFixed(5)}°</li>
     </ul>
 `).openPopup();
 
-console.log("nr: ", stop.nr);
-console.log("title: ", stop.title);
-console.log("user: ", stop.user);
-console.log("lat: ", stop.lat);
-console.log("lng: ", stop.lng);
-console.log("zoom: ", stop.zoom);
