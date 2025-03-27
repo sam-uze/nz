@@ -201,8 +201,6 @@ const STOPS = [
 console.log(STOPS[0]);
 console.log(STOPS[0].title);
 
-
-
 //Karte initialisieren
 let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 
@@ -216,17 +214,15 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 for ( let i=0; i<STOPS.length; i++){
     console.log(i,STOPS[i],STOPS[i].title);
     let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+    //Popup definieren und öffnen
+    marker.bindPopup(`
+        <h2>${STOPS[i].title}</h2>
+        <ul>
+            <li>geogr. Breite: ${STOPS[i].lat.toFixed(5)}°</li> 
+            <li>geogr. Länge: ${STOPS[i].lng.toFixed(5)}°</li>
+        </ul>
+`).openPopup();
+
 }
 
-
-
-
-//Popup definieren und öffnen
-marker.bindPopup(`
-    <h2>${stop.title}</h2>
-    <ul>
-        <li>geogr. Breite: ${stop.lat.toFixed(5)}°</li> 
-        <li>geogr. Länge: ${stop.lng.toFixed(5)}°</li>
-    </ul>
-`).openPopup();
 
