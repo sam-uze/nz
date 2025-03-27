@@ -21,7 +21,9 @@ let marker = L.marker([-39.48, 176.90]).addTo(map);
 
 //Popup definieren und öffnen
 marker.bindPopup(`
-    <b>Napier</b>
-    <br>
-    Center at ${lat.toFixed(5)} / ${lng.toFixed(5)}
+    <b><h2>Napier</h2>
+    <ul>
+        <li>geogr. Breite:5 ${lat.toFixed(5)}°</li> 
+        <li>geogr. Länge: ${lng.toFixed(5)}°</li>
+    </ul>
 `).openPopup();
