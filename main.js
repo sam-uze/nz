@@ -204,12 +204,6 @@ console.log(STOPS[0].title);
 //Karte initialisieren
 let map = L.map('map');
 
-//Hintergrund definieren
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
 //Overlays definieren
 let overlays = {
     places: L.featureGroup().addTo(map),
