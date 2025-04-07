@@ -210,6 +210,21 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+//Overlays definieren
+let overlays = {
+    places: L.featureGroup().addTo(map),
+    }
+
+
+//Layercontrol
+L.control.layers({
+    "OpenStreetMap": L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map),
+    "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
+    "Esri World Imagery": L.tileLayer.provider('Esri.WorldImagery'),
+},{
+    "Orte": overlays.places,
+}).addTo(map);
+
 //Maßstab definieren
 L.control.scale({
     imperial: false,
@@ -218,7 +233,7 @@ L.control.scale({
 // Loop über alle Etappen
 for ( let i=0; i<STOPS.length; i++){
     console.log(i,STOPS[i],STOPS[i].title);
-    let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+    let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(overlays.places);
     //Popup definieren und öffnen
     marker.bindPopup(`
         <h2>${STOPS[i].title}</h2>
